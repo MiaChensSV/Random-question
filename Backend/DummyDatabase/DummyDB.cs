@@ -2,6 +2,14 @@
 
 namespace DHA_Code_Test_Backend;
 
+public class QuestionAnswerNotFoundException: Exception 
+{
+	public QuestionAnswerNotFoundException(string? message) : base(message) { }
+}
+public class DuplicatedQuestionAnswerException: Exception
+{
+	public DuplicatedQuestionAnswerException(string? message) : base(message) { }
+}
 public static class DummyDB
 {
 	private static List<QuestionAnswerModel> questionAnswerlist = new List<QuestionAnswerModel>{
@@ -67,8 +75,17 @@ public static class DummyDB
 	}
 	public static AnswerModel getAnswerById(int questionAnswerId)
 	{
-		return questionAnswerlist
-			.FirstOrDefault(item => item.QuestionAnswerId == questionAnswerId)!
-			.ToAnswerModel();
+		List<QuestionAnswerModel> result = questionAnswerlist
+			.FindAll(item => item.QuestionAnswerId == questionAnswerId)
+			.ToList();
+		if (result.Count == 0)
+		{
+			throw new QuestionAnswerNotFoundException("Question Answer not found by Id of {" + questionAnswerId + "}");
+		} else if (result.Count > 1)
+		{
+			throw new DuplicatedQuestionAnswerException("More Question Answers has a same Id");
+		}
+		return result[0].ToAnswerModel();
+			
 	}
 }

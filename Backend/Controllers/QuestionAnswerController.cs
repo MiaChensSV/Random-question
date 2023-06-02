@@ -16,9 +16,26 @@ namespace DHA_Code_Test_Backend.Controllers
 		}
 		[HttpGet]
 		[Route("/getAnswerById/{questionAnswerId}")]
-		public AnswerModel getAnswer(int questionAnswerId) 
+		public ActionResult<AnswerModel> getAnswer(int questionAnswerId) 
 		{
-			return DummyDB.getAnswerById(questionAnswerId);
+			try
+			{
+				if (questionAnswerId <= 0) {
+					return StatusCode(422, "Question Answer Id out of range.");
+				}
+				AnswerModel retVal = DummyDB.getAnswerById(questionAnswerId);
+				return retVal;
+			} catch (QuestionAnswerNotFoundException exc)
+			{
+				return StatusCode(404, exc.Message);
+			} catch (DuplicatedQuestionAnswerException exc)
+			{
+				return StatusCode(500, exc.Message);
+			} catch (Exception)
+			{
+				return StatusCode(500, "Server Error");
+			}
+			
 		}
 	}
 }

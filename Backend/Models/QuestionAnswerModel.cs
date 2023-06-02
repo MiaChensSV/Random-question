@@ -2,9 +2,21 @@
 {
 	public class QuestionAnswerModel
 	{
+		private string[] _options;
 		public int QuestionAnswerId { get; set; }
 		public string QuestionText { get; set; } = null!;
-		public string[] Options { get; set; } = null!;
+		public string[] Options 
+		{
+			get { return this._options; }
+			set 
+			{
+				if (value.Length != 3)
+				{
+					throw new ArgumentException("Number of options must be 3!");
+				}
+				this._options = value;
+			} 
+		}
 		public int AnswerIndex { get; set; } = 0;
 
 		public QuestionAnswerModel(
