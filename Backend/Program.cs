@@ -5,13 +5,25 @@ namespace DHA_Code_Test_Backend
 		public static void Main(string[] args)
 		{
 			var builder = WebApplication.CreateBuilder(args);
-
+			// Add localhost:4200 to Cors 
+			builder.Services.AddCors(options => 
+			{
+				options.AddDefaultPolicy(builder =>
+				{
+					builder.WithOrigins("http://localhost:4200")
+						.AllowAnyHeader()
+						.AllowAnyMethod()
+						.AllowCredentials();
+				});
+			});
 			// Add services to the container.
 
 			builder.Services.AddControllers();
 			// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 			builder.Services.AddEndpointsApiExplorer();
 			builder.Services.AddSwaggerGen();
+			
+			
 
 			var app = builder.Build();
 
@@ -22,10 +34,11 @@ namespace DHA_Code_Test_Backend
 				app.UseSwaggerUI();
 			}
 
+			app.UseCors();
+
 			app.UseHttpsRedirection();
 
 			app.UseAuthorization();
-
 
 			app.MapControllers();
 
