@@ -10,13 +10,13 @@ namespace DHA_Code_Test_Backend.Controllers
 	{
 		[HttpGet]
 		[Route("/getRandomQuestions")]
-		public IEnumerable<QuestionModel> getQuestions() 
+		public IEnumerable<QuestionModel> GetQuestions() 
 		{
 			return DummyDB.getRandomQuestions();
 		}
 		[HttpGet]
 		[Route("/getAnswerById/{questionAnswerId}")]
-		public ActionResult<AnswerModel> getAnswer(int questionAnswerId) 
+		public ActionResult<AnswerModel> GetAnswer(int questionAnswerId) 
 		{
 			try
 			{
@@ -27,13 +27,13 @@ namespace DHA_Code_Test_Backend.Controllers
 				return retVal;
 			} catch (QuestionAnswerNotFoundException exc)
 			{
-				return StatusCode(404, exc.Message);
+				return StatusCode(404, ErrorHandler.GenerateLoggedErrorJson(exc));
 			} catch (DuplicatedQuestionAnswerException exc)
 			{
-				return StatusCode(500, exc.Message);
-			} catch (Exception)
+				return StatusCode(500, ErrorHandler.GenerateLoggedErrorJson(exc));
+			} catch (Exception exc)
 			{
-				return StatusCode(500, "Server Error");
+				return StatusCode(500, ErrorHandler.GenerateLoggedErrorJson(exc));
 			}
 			
 		}
