@@ -1,5 +1,4 @@
 ﻿using DHA_Code_Test_Backend.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DHA_Code_Test_Backend.Controllers
@@ -9,10 +8,19 @@ namespace DHA_Code_Test_Backend.Controllers
 	public class QuestionAnswerController : ControllerBase
 	{
 		[HttpGet]
-		[Route("/getRandomQuestions")]
-		public IEnumerable<QuestionModel> GetQuestions() 
+		[Route("/getRandomQuestions/{numOfRand}")]
+		public ActionResult<IEnumerable<QuestionModel>> GetQuestions(int numOfRand)
 		{
-			return DummyDB.getRandomQuestions();
+			try
+			{
+				return DummyDB.getRandomQuestions(numOfRand);
+			} catch(ArgumentOutOfRangeException exc) 
+			{
+				return StatusCode(422, ErrorHandler.GenerateLoggedErrorJson(exc));
+			} catch(Exception exc)
+			{
+				return StatusCode(500, ErrorHandler.GenerateLoggedErrorJson(exc));
+			}
 		}
 		[HttpGet]
 		[Route("/getAnswerById/{questionAnswerId}")]
