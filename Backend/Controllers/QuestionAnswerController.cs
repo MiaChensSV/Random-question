@@ -7,8 +7,7 @@ namespace DHA_Code_Test_Backend.Controllers
 	[ApiController]
 	public class QuestionAnswerController : ControllerBase
 	{
-		[HttpGet]
-		[Route("/getRandomQuestions/{numOfRand}")]
+		[HttpGet("getRandomQuestions/{numOfRand}")]
 		public ActionResult<IEnumerable<QuestionModel>> GetQuestions(int numOfRand)
 		{
 			try
@@ -22,8 +21,7 @@ namespace DHA_Code_Test_Backend.Controllers
 				return StatusCode(500, ErrorHandler.GenerateLoggedErrorJson(exc));
 			}
 		}
-		[HttpGet]
-		[Route("/getAnswerById/{questionAnswerId}")]
+		[HttpGet("getAnswerById/{questionAnswerId}")]
 		public ActionResult<AnswerModel> GetAnswer(int questionAnswerId) 
 		{
 			try
