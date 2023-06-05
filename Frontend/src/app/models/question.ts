@@ -1,5 +1,6 @@
+import { Option } from "./option"
 export interface Question {
     questionAnswerId:number,
     questionText:string,
-    options:Array<string>[]
+    options: Option[]
 }
