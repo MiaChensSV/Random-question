@@ -8,49 +8,89 @@ public static class DummyDB
 		new QuestionAnswerModel(
 			1,
 			"What is your name?",
-			new string[] {"Kevin", "Yihong", "Hong"},
+			new OptionModel[]
+			{
+				new OptionModel(Option.One, "Kevin"),
+				new OptionModel(Option.X, "Yihong"),
+				new OptionModel(Option.Two, "Stella")
+			},
 			1
 		),
 		new QuestionAnswerModel(
 			2,
 			"What is your fav car?",
-			new string[] {"Volvo", "VW", "BMW"},
+			new OptionModel[]
+			{
+				new OptionModel(Option.One, "Kevin"),
+				new OptionModel(Option.X, "Yihong"),
+				new OptionModel(Option.Two, "Stella")
+			},
 			2
 		),
 		new QuestionAnswerModel(
 			3,
 			"What is your fav color?",
-			new string[] {"Red", "Yellow", "Blue"},
+			new OptionModel[]
+			{
+				new OptionModel(Option.One, "Kevin"),
+				new OptionModel(Option.X, "Yihong"),
+				new OptionModel(Option.Two, "Stella")
+			},
 			0
 		),
 		new QuestionAnswerModel(
 			4,
 			"What is your daughter's name?",
-			new string[] {"Kevin", "Yihong", "Stella"},
+			new OptionModel[]
+			{
+				new OptionModel(Option.One, "Kevin"),
+				new OptionModel(Option.X, "Yihong"),
+				new OptionModel(Option.Two, "Stella")
+			},
 			2
 		),
 		new QuestionAnswerModel(
 			5,
 			"What is your car's name?",
-			new string[] {"Kevin", "Passat", "Hong"},
+			new OptionModel[]
+			{
+				new OptionModel(Option.One, "Kevin"),
+				new OptionModel(Option.X, "Yihong"),
+				new OptionModel(Option.Two, "Stella")
+			},
 			1
 		),
 		new QuestionAnswerModel(
 			6,
 			"What is your street name?",
-			new string[] {"Kevin", "Soljlus", "Hong"},
+			new OptionModel[]
+			{
+				new OptionModel(Option.One, "Kevin"),
+				new OptionModel(Option.X, "Yihong"),
+				new OptionModel(Option.Two, "Stella")
+			},
 			1
 		),
 		new QuestionAnswerModel(
 			7,
 			"What is your dog's name?",
-			new string[] {"Vanisa", "Yihong", "Hong"},
+			new OptionModel[]
+			{
+				new OptionModel(Option.One, "Kevin"),
+				new OptionModel(Option.X, "Yihong"),
+				new OptionModel(Option.Two, "Stella")
+			},
 			0
 		),
 		new QuestionAnswerModel(
 			8,
 			"What is your ice scream's name?",
-			new string[] {"Ben & Jerry", "Yihong", "Hong"},
+			new OptionModel[]
+			{
+				new OptionModel(Option.One, "Kevin"),
+				new OptionModel(Option.X, "Yihong"),
+				new OptionModel(Option.Two, "Stella")
+			},
 			0
 		)
 	};

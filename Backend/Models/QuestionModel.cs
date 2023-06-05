@@ -4,8 +4,8 @@
 	{
 		public int QuestionAnswerId{ get; set; }
 		public string QuestionText { get; set; } = null!;
-		public string[] Options { get; set; } = null!;
-		public QuestionModel(int questionAnswerId, string questionText, string[] options) 
+		public OptionModel[] Options { get; set; } = null!;
+		public QuestionModel(int questionAnswerId, string questionText, OptionModel[] options) 
 		{
 			this.QuestionText = questionText;
 			this.QuestionAnswerId= questionAnswerId;

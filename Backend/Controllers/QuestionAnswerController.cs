@@ -7,12 +7,12 @@ namespace DHA_Code_Test_Backend.Controllers
 	[ApiController]
 	public class QuestionAnswerController : ControllerBase
 	{
-		[HttpGet("getRandomQuestions/{numOfRand}")]
-		public ActionResult<IEnumerable<QuestionModel>> GetQuestions(int numOfRand)
+		[HttpGet("getRandomQuestions/{numOfQuestions}")]
+		public ActionResult<IEnumerable<QuestionModel>> GetQuestions(int numOfQuestions)
 		{
 			try
 			{
-				return DummyDB.getRandomQuestions(numOfRand);
+				return DummyDB.getRandomQuestions(numOfQuestions);
 			} catch(ArgumentOutOfRangeException exc) 
 			{
 				return StatusCode(422, ErrorHandler.GenerateLoggedErrorJson(exc));

@@ -4,21 +4,20 @@ public class QuestionAnswerModel
 {
 	public int QuestionAnswerId { get; set; }
 	public string QuestionText { get; set; } = null!;
-	public string[] Options { set; get; } = null!;
+	public OptionModel[] Options { set; get; } = null!;
 	public int AnswerIndex { get; set; } = 0;
 
 	public QuestionAnswerModel(
-		int questionAnswerId, 
+		int questionAnswerId,
 		string questionText,
-		string[] options,
+		OptionModel[] options,
 		int answerIndex
-	) { 
+	) {
 		this.QuestionAnswerId = questionAnswerId;
 		this.QuestionText = questionText;
 		this.Options = options;
 		this.AnswerIndex = answerIndex;
 	}
-
 	public QuestionModel ToQuestionModel()
 	{
 		return new QuestionModel(this.QuestionAnswerId, this.QuestionText, this.Options);
