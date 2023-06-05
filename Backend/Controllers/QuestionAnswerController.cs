@@ -1,5 +1,4 @@
 ﻿using DHA_Code_Test_Backend.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DHA_Code_Test_Backend.Controllers
@@ -8,15 +7,22 @@ namespace DHA_Code_Test_Backend.Controllers
 	[ApiController]
 	public class QuestionAnswerController : ControllerBase
 	{
-		[HttpGet]
-		[Route("/getRandomQuestions")]
-		public IEnumerable<QuestionModel> getQuestions() 
+		[HttpGet("getRandomQuestions/{numOfRand}")]
+		public ActionResult<IEnumerable<QuestionModel>> GetQuestions(int numOfRand)
 		{
-			return DummyDB.getRandomQuestions();
+			try
+			{
+				return DummyDB.getRandomQuestions(numOfRand);
+			} catch(ArgumentOutOfRangeException exc) 
+			{
+				return StatusCode(422, ErrorHandler.GenerateLoggedErrorJson(exc));
+			} catch(Exception exc)
+			{
+				return StatusCode(500, ErrorHandler.GenerateLoggedErrorJson(exc));
+			}
 		}
-		[HttpGet]
-		[Route("/getAnswerById/{questionAnswerId}")]
-		public ActionResult<AnswerModel> getAnswer(int questionAnswerId) 
+		[HttpGet("getAnswerById/{questionAnswerId}")]
+		public ActionResult<AnswerModel> GetAnswer(int questionAnswerId) 
 		{
 			try
 			{
@@ -27,13 +33,13 @@ namespace DHA_Code_Test_Backend.Controllers
 				return retVal;
 			} catch (QuestionAnswerNotFoundException exc)
 			{
-				return StatusCode(404, exc.Message);
+				return StatusCode(404, ErrorHandler.GenerateLoggedErrorJson(exc));
 			} catch (DuplicatedQuestionAnswerException exc)
 			{
-				return StatusCode(500, exc.Message);
-			} catch (Exception)
+				return StatusCode(500, ErrorHandler.GenerateLoggedErrorJson(exc));
+			} catch (Exception exc)
 			{
-				return StatusCode(500, "Server Error");
+				return StatusCode(500, ErrorHandler.GenerateLoggedErrorJson(exc));
 			}
 			
 		}

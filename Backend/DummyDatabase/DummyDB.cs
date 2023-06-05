@@ -2,14 +2,6 @@
 
 namespace DHA_Code_Test_Backend;
 
-public class QuestionAnswerNotFoundException: Exception 
-{
-	public QuestionAnswerNotFoundException(string? message) : base(message) { }
-}
-public class DuplicatedQuestionAnswerException: Exception
-{
-	public DuplicatedQuestionAnswerException(string? message) : base(message) { }
-}
 public static class DummyDB
 {
 	private static List<QuestionAnswerModel> questionAnswerlist = new List<QuestionAnswerModel>{
@@ -102,14 +94,15 @@ public static class DummyDB
 			0
 		)
 	};
-	public static QuestionModel[] getRandomQuestions() 
+	public static QuestionModel[] getRandomQuestions(int numOfRand) 
 	{
-		QuestionModel[] retVal = new QuestionModel[3];
-		Random random = new Random();
-		for (int i = 0; i < retVal.Length; i++)
+		if (numOfRand > questionAnswerlist.Count)
+			throw new ArgumentOutOfRangeException("Number of random can not be greater than the number of questions.");
+		QuestionModel[] retVal = new QuestionModel[numOfRand];
+		List<int> randIndexes = GenerateNonRepeatRandom(numOfRand, questionAnswerlist.Count());
+		for (int i = 0; i < numOfRand; i++)
 		{
-			int index = (int)random.Next(0, 8);
-			retVal[i] = questionAnswerlist[index].ToQuestionModel();
+			retVal[i] = questionAnswerlist[randIndexes[i]].ToQuestionModel();
 		}
 		return retVal;
 	}
@@ -120,12 +113,25 @@ public static class DummyDB
 			.ToList();
 		if (result.Count == 0)
 		{
-			throw new QuestionAnswerNotFoundException("Question Answer not found by Id of {" + questionAnswerId + "}");
+			throw new QuestionAnswerNotFoundException("Question Answer not found by Id of '" + questionAnswerId + "'");
 		} else if (result.Count > 1)
 		{
 			throw new DuplicatedQuestionAnswerException("More Question Answers has a same Id");
 		}
 		return result[0].ToAnswerModel();
-			
+	}
+	private static List<int> GenerateNonRepeatRandom(int numOfRand, int sampleSize)
+	{
+		Random rand = new Random();
+		List<int> retVal = new List<int>();
+		while(retVal.Count < numOfRand)
+		{
+			int newRandInt = rand.Next(0, sampleSize);
+			if (!retVal.Contains(newRandInt))
+			{
+				retVal.Add(newRandInt);
+			}
+		}
+		return retVal;
 	}
 }
