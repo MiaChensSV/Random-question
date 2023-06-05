@@ -21,7 +21,7 @@ namespace DHA_Code_Test_Backend.Controllers
 				return StatusCode(500, ErrorHandler.GenerateLoggedErrorJson(exc));
 			}
 		}
-		[HttpGet("getAnswerById/{questionAnswerId}")]
+		[HttpGet("getCorrectAnswerById/{questionAnswerId}")]
 		public ActionResult<AnswerModel> GetAnswer(int questionAnswerId) 
 		{
 			try
@@ -29,7 +29,7 @@ namespace DHA_Code_Test_Backend.Controllers
 				if (questionAnswerId <= 0) {
 					return StatusCode(422, "Question Answer Id out of range.");
 				}
-				AnswerModel retVal = DummyDB.getAnswerById(questionAnswerId);
+				AnswerModel retVal = DummyDB.getCorrectAnswerById(questionAnswerId);
 				return retVal;
 			} catch (QuestionAnswerNotFoundException exc)
 			{
@@ -40,8 +40,29 @@ namespace DHA_Code_Test_Backend.Controllers
 			} catch (Exception exc)
 			{
 				return StatusCode(500, ErrorHandler.GenerateLoggedErrorJson(exc));
+			}	
+		}
+		[HttpPost("checkAnswer")]
+		public ActionResult<ResultModel> CheckAnswer([FromBody] AnswerModel answer)
+		{
+			try
+			{
+				if (answer == null || answer.QuestionAnswerId < 0)
+					throw new ArgumentException("Unprocessable answer object");
+				AnswerModel correctAnswer = DummyDB.getCorrectAnswerById(answer.QuestionAnswerId);
+				if (correctAnswer.Answer == answer.Answer)
+					return new ResultModel(answer.QuestionAnswerId, true);
+				else
+					return new ResultModel(answer.QuestionAnswerId, false);
 			}
-			
+			catch (ArgumentException exc)
+			{
+				return StatusCode(422, ErrorHandler.GenerateLoggedErrorJson(exc));
+			}
+			catch (Exception exc)
+			{
+				return StatusCode(500, ErrorHandler.GenerateLoggedErrorJson(exc));
+			}
 		}
 	}
 }
