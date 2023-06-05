@@ -16,9 +16,14 @@ public static class DummyDB
 		new QuestionAnswerModel(
 			1,
 			"What is your name?",
-			new string[] {"Kevin", "Yihong", "Hong"},
+			new OptionModel[]
+			{
+				new OptionModel(Option.One, "Kevin"),
+				new OptionModel(Option.One, "Kevin"),
+				"Kevin", "Yihong", "Hong"
+			},
 			1
-		),
+		);,
 		new QuestionAnswerModel(
 			2,
 			"What is your fav car?",
