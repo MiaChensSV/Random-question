@@ -14,7 +14,7 @@ public static class DummyDB
 				new OptionModel(Option.X, "Yihong"),
 				new OptionModel(Option.Two, "Stella")
 			},
-			1
+			Option.X
 		),
 		new QuestionAnswerModel(
 			2,
@@ -25,7 +25,7 @@ public static class DummyDB
 				new OptionModel(Option.X, "Yihong"),
 				new OptionModel(Option.Two, "Stella")
 			},
-			2
+			Option.One
 		),
 		new QuestionAnswerModel(
 			3,
@@ -36,7 +36,7 @@ public static class DummyDB
 				new OptionModel(Option.X, "Yihong"),
 				new OptionModel(Option.Two, "Stella")
 			},
-			0
+			Option.Two
 		),
 		new QuestionAnswerModel(
 			4,
@@ -47,7 +47,7 @@ public static class DummyDB
 				new OptionModel(Option.X, "Yihong"),
 				new OptionModel(Option.Two, "Stella")
 			},
-			2
+			Option.One
 		),
 		new QuestionAnswerModel(
 			5,
@@ -58,7 +58,7 @@ public static class DummyDB
 				new OptionModel(Option.X, "Yihong"),
 				new OptionModel(Option.Two, "Stella")
 			},
-			1
+			Option.X
 		),
 		new QuestionAnswerModel(
 			6,
@@ -69,7 +69,7 @@ public static class DummyDB
 				new OptionModel(Option.X, "Yihong"),
 				new OptionModel(Option.Two, "Stella")
 			},
-			1
+			Option.Two
 		),
 		new QuestionAnswerModel(
 			7,
@@ -80,7 +80,7 @@ public static class DummyDB
 				new OptionModel(Option.X, "Yihong"),
 				new OptionModel(Option.Two, "Stella")
 			},
-			0
+			Option.X
 		),
 		new QuestionAnswerModel(
 			8,
@@ -91,7 +91,7 @@ public static class DummyDB
 				new OptionModel(Option.X, "Yihong"),
 				new OptionModel(Option.Two, "Stella")
 			},
-			0
+			Option.Two
 		)
 	};
 	public static QuestionModel[] getRandomQuestions(int numOfRand) 
@@ -106,7 +106,7 @@ public static class DummyDB
 		}
 		return retVal;
 	}
-	public static AnswerModel getAnswerById(int questionAnswerId)
+	public static AnswerModel getCorrectAnswerById(int questionAnswerId)
 	{
 		List<QuestionAnswerModel> result = questionAnswerlist
 			.FindAll(item => item.QuestionAnswerId == questionAnswerId)
@@ -118,7 +118,7 @@ public static class DummyDB
 		{
 			throw new DuplicatedQuestionAnswerException("More Question Answers has a same Id");
 		}
-		return result[0].ToAnswerModel();
+		return result[0].GetCorrectAnswerModel();
 	}
 	private static List<int> GenerateNonRepeatRandom(int numOfRand, int sampleSize)
 	{

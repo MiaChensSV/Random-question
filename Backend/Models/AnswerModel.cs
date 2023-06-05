@@ -2,14 +2,14 @@
 {
 	public class AnswerModel
 	{
-		public int QuestionAnswerId{ get;set; }
-		public int AnswerIndex { get;set; }
-		public OptionModel[] Options { get; set; } = null!;
-		public AnswerModel(int questionAnswerId, OptionModel[] options, int answerIndex)
+		public int QuestionAnswerId { get; set; } = -1;
+		public string Answer { get; set; } = "";
+		public AnswerModel(){}		
+		public AnswerModel(int questionAnswerId, string anwser)
 		{
 			this.QuestionAnswerId = questionAnswerId;
-			this.AnswerIndex = answerIndex;
-			this.Options = options;
+			this.Answer = anwser;
+	
 		}
 	}
 }
