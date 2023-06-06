@@ -1,5 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-import axios from 'axios';
+import { Component } from '@angular/core';;
 import { Question } from './models/question';
 
 @Component({
@@ -7,7 +6,7 @@ import { Question } from './models/question';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent {
   title = 'Frontend';
   score:number=-1;
   questionList:Question[] = [];
@@ -17,16 +16,6 @@ export class AppComponent implements OnInit{
   constructor(){
 
   }
-
-  ngOnInit(){
-
-  }
-  // getQuestions(){
-  //   axios.get('http://localhost:3001/api/QuestionAnswer/getRandomQuestions/3').then(res => {
-  //     const question:any = res.data;
-  //     this.questionList=question;
-  //   });
-  // }
 
   receiveScore($event:number){
     this.score=$event;

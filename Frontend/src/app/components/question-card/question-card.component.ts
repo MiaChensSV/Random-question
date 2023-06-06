@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter,OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Question } from '../../models/question';
 import axios from 'axios'
 
@@ -7,16 +7,14 @@ import axios from 'axios'
   templateUrl: './question-card.component.html',
   styleUrls: ['./question-card.component.css']
 })
-export class QuestionCardComponent implements OnInit{
-  @Input() questionList: Array<Question> = [];
-  @Input() questionIndex: number = 0;
+export class QuestionCardComponent {
+  questionList: Array<Question> = [];
+  questionIndex: number = 0;
   @Output() scoreEvent = new EventEmitter<number>();
-  @Output() questionIndexEvent = new EventEmitter<number>();
   optionIndex: any;
   score:number=0;
+  startButtonText: string = 'Start';
 
-  ngOnInit(){
-  }
   changeSelection(event:any,index:number){
     this.optionIndex = event.target.checked ? index: undefined;
   }
@@ -41,7 +39,6 @@ export class QuestionCardComponent implements OnInit{
         // next question
         this.optionIndex = null;
         this.questionIndex++;
-        this.questionIndexEvent.emit(this.questionIndex);
         if(this.questionIndex == this.questionList.length){
           this.scoreEvent.emit(this.score);
           this.score = 0;
@@ -49,8 +46,26 @@ export class QuestionCardComponent implements OnInit{
         }
       });
     }
-    
-    
-    
+  }
+  retry(){
+    this.startButtonText = 'Retry';
+    this.getQuestions();
+    this.reset();
+  }
+  stop(){
+    this.startButtonText = 'Start';
+    this.questionList = [];
+    this.reset()
+  }
+  reset(){
+    this.questionIndex = 0;
+    this.optionIndex = null;
+    this.score = 0;
+    this.scoreEvent.emit(-1);
+  }
+  getQuestions(){
+    axios.get('http://localhost:3001/api/QuestionAnswer/getRandomQuestions/3').then(res => {
+      this.questionList = res.data;
+    });
   }
 }

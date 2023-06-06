@@ -1,5 +1,6 @@
 <div>
-  12312323
+  <button (click)="retry()">{{startButtonText}}</button>
+  <button (click)="stop()">Stop</button>
 </div>
 <div *ngIf="questionList.length > 0 && questionIndex < questionList.length">
   <p>question-card works!</p>

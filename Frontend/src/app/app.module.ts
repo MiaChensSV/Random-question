@@ -6,15 +6,12 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { QuestionCardComponent } from './components/question-card/question-card.component';
 import { ScoreCardComponent } from './components/score-card/score-card.component';
-import { ButtonCardComponent } from './components/button-card/button-card.component';
-
 
 @NgModule({
   declarations: [
     AppComponent,
     QuestionCardComponent,
-    ScoreCardComponent,
-    ButtonCardComponent
+    ScoreCardComponent
   ],
   imports: [
     BrowserModule,
