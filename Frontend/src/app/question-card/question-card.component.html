@@ -1,0 +1,19 @@
+<div *ngIf="questionList.length > 0">
+  <p>question-card works!</p>
+  <h1>
+    {{ questionList[questionIndex].questionText }}
+  </h1>
+  <div>
+    <label 
+      *ngFor="let option of questionList[questionIndex].options let index = index"
+    >
+      <input
+        type="checkbox"
+        [ngModel]="optionIndex == index"
+        (change)="changeSelection($event, index)"
+      />
+      {{ option.optionText }}
+    </label>
+    <button (click)="submitAnswer()">Submit</button>
+  </div>
+</div>

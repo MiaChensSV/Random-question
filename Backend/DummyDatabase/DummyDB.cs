@@ -96,7 +96,7 @@ public static class DummyDB
 	};
 	public static QuestionModel[] getRandomQuestions(int numOfRand) 
 	{
-		if (numOfRand > questionAnswerlist.Count)
+		if (numOfRand > questionAnswerlist.Count || numOfRand < 0)
 			throw new ArgumentOutOfRangeException("Number of random can not be greater than the number of questions.");
 		QuestionModel[] retVal = new QuestionModel[numOfRand];
 		List<int> randIndexes = GenerateNonRepeatRandom(numOfRand, questionAnswerlist.Count());

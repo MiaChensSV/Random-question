@@ -9,7 +9,6 @@ import axios from 'axios';
 })
 export class AppComponent implements OnInit{
   title = 'Frontend';
-<<<<<<< HEAD
 
   questionList:Array<any>=[];
   answerId:number=1;
@@ -20,22 +19,18 @@ export class AppComponent implements OnInit{
   }
   
   ngOnInit(){
+    this.getQuestions();
+  }
+  getQuestions(){
     axios.get('http://localhost:3001/api/QuestionAnswer/getRandomQuestions/3').then(res => {
       const question:any = res.data;
       this.questionList=question;
+      console.log(this.questionList);
     });
-  };
-
+  }
   
   receiveAnswer($event:any){
     this.answerId=$event;
     console.log(this.answerId)
   }
-=======
-  ngOnInit(){
-    axios.get('http://localhost:3001/api/QuestionAnswer/getRandomQuestions/3').then(res => {
-      console.log(res);
-    });
-  };
->>>>>>> 1903e39e6e37d655d9093f3e801a5bb23ee60a55
 }
