@@ -1,0 +1,11 @@
+<p>
+  score-card works!
+  {{'get from parent'+scoreResult}}
+</p>
+<div [ngSwitch]="scoreResult">
+  <div *ngSwitchCase="0">You have answered 0 out of 3 questions correctly</div>
+  <div *ngSwitchCase="1">You have answered 1 out of 3 questions correctly</div>
+  <div *ngSwitchCase="2">You have gain 2 out of 3 questions correctly</div>
+  <div *ngSwitchCase="3"> You have gain 3 out of 3 questions correctly</div>
+
+</div>
