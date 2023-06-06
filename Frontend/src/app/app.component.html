@@ -17,6 +17,15 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
 <router-outlet> 
-  <app-question-card [questionList]="questionList" (scoreEvent)="receiveScore($event)"/>
-  <app-score-card [scoreResult]="score"></app-score-card>
+  <app-button-card 
+    [isStarted]="isStarted" 
+    (questionListEvent)="receiveQuestionList($event)"
+  />
+  <app-question-card 
+    [questionList]="questionList" 
+    [questionIndex]="questionIndexxxxx"
+    (scoreEvent)="receiveScore($event)"
+    (questionIndexEvent)="receiveQuestionIndex($event)"
+  />
+  <app-score-card [scoreResult]="score" />
 </router-outlet>
