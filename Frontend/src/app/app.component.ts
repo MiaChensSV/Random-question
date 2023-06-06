@@ -9,10 +9,8 @@ import axios from 'axios';
 })
 export class AppComponent implements OnInit{
   title = 'Frontend';
-
   questionList:Array<any>=[];
-  answerId:number=1;
-
+  score:number=-1;
 
   constructor(){
     
@@ -25,12 +23,10 @@ export class AppComponent implements OnInit{
     axios.get('http://localhost:3001/api/QuestionAnswer/getRandomQuestions/3').then(res => {
       const question:any = res.data;
       this.questionList=question;
-      console.log(this.questionList);
     });
   }
-  
-  receiveAnswer($event:any){
-    this.answerId=$event;
-    console.log(this.answerId)
+
+  receiveScore($event:number){
+    this.score=$event;
   }
 }
