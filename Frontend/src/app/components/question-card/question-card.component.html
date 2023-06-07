@@ -11,13 +11,14 @@
     <div class="image"><img [src]="baseUrl+questionList[questionIndex].imageUrl" alt='{{questionList[questionIndex].questionText}}'/></div> 
     <div class="answer" >
       <label *ngFor="let option of questionList[questionIndex].options let index = index"
-      >
+      > 
+        <span>{{optionSymbols[option.optionValue]}}. </span>
         <input
           type="checkbox"
           [ngModel]="optionIndex == index"
           (change)="changeSelection($event, index)"
         />
-        {{ option.optionText }}
+       {{ option.optionText }}
       </label>     
     </div>
     <div class="submit">

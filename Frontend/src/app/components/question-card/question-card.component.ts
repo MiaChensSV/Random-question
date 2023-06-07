@@ -17,6 +17,7 @@ export class QuestionCardComponent {
   startButtonText: string = 'Start';
   baseUrl:string=environment.backendBaseUrl;
   title:string="Let's do a test";
+  optionSymbols:string[]=["1", "X", "2"];
 
   changeSelection(event:any,index:number){
     this.optionIndex = event.target.checked ? index: undefined;
