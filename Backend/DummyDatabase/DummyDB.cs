@@ -7,96 +7,96 @@ public static class DummyDB
 	private static List<QuestionAnswerModel> questionAnswerlist = new List<QuestionAnswerModel>{
 		new QuestionAnswerModel(
 			1,
-			"What is your name?",
+            "What is the capital of France?",
 			new OptionModel[]
 			{
-				new OptionModel(Option.One, "Kevin"),
-				new OptionModel(Option.X, "Yihong"),
-				new OptionModel(Option.Two, "Stella")
+				new OptionModel(Option.One, "London"),
+				new OptionModel(Option.X, "Paris"),
+				new OptionModel(Option.Two, "Berlin")
 			},
 			Option.X,
 			"/images/quiz1.jpg"
 		),
 		new QuestionAnswerModel(
 			2,
-			"What is your fav car?",
+            "Who painted the Mona Lisa?",
 			new OptionModel[]
 			{
-				new OptionModel(Option.One, "Kevin"),
-				new OptionModel(Option.X, "Yihong"),
-				new OptionModel(Option.Two, "Stella")
+				new OptionModel(Option.One, "Leonardo da Vinci"),
+				new OptionModel(Option.X, "Vincent van Gogh"),
+				new OptionModel(Option.Two, "Pablo Picasso")
 			},
 			Option.One,
 			"/images/quiz2.jpg"
 		),
 		new QuestionAnswerModel(
 			3,
-			"What is your fav color?",
+            "What is the largest planet in our solar system?",
 			new OptionModel[]
 			{
-				new OptionModel(Option.One, "Kevin"),
-				new OptionModel(Option.X, "Yihong"),
-				new OptionModel(Option.Two, "Stella")
+				new OptionModel(Option.One, "Earth"),
+				new OptionModel(Option.X, "Mars"),
+				new OptionModel(Option.Two, "Jupiter")
 			},
 			Option.Two,
 			"/images/quiz3.jpg"
 		),
 		new QuestionAnswerModel(
 			4,
-			"What is your daughter's name?",
+            "What is the chemical symbol for gold?",
 			new OptionModel[]
 			{
-				new OptionModel(Option.One, "Kevin"),
-				new OptionModel(Option.X, "Yihong"),
-				new OptionModel(Option.Two, "Stella")
+				new OptionModel(Option.One, "Au"),
+				new OptionModel(Option.X, "Ag"),
+				new OptionModel(Option.Two, "Fe")
 			},
 			Option.One,
 			"/images/quiz4.jpg"
 		),
 		new QuestionAnswerModel(
 			5,
-			"What is your car's name?",
+            "Who wrote the novel \"Pride and Prejudice\"?",
 			new OptionModel[]
 			{
-				new OptionModel(Option.One, "Kevin"),
-				new OptionModel(Option.X, "Yihong"),
-				new OptionModel(Option.Two, "Stella")
+				new OptionModel(Option.One, "Emily Brontë"),
+				new OptionModel(Option.X, "Jane Austen"),
+				new OptionModel(Option.Two, "Virginia Woolf")
 			},
 			Option.X,
 			"/images/quiz5.jpg"
 		),
 		new QuestionAnswerModel(
 			6,
-			"What is your street name?",
+            "What is the world's tallest mountain?",
 			new OptionModel[]
 			{
-				new OptionModel(Option.One, "Kevin"),
-				new OptionModel(Option.X, "Yihong"),
-				new OptionModel(Option.Two, "Stella")
+				new OptionModel(Option.One, "Mount Kilimanjaro"),
+				new OptionModel(Option.X, "Mount Fuji"),
+				new OptionModel(Option.Two, "Mount Everest")
 			},
 			Option.Two,
 			"/images/quiz6.jpg"
 		),
 		new QuestionAnswerModel(
 			7,
-			"What is your dog's name?",
+            "What is the main ingredient in guacamole?",
 			new OptionModel[]
 			{
-				new OptionModel(Option.One, "Kevin"),
-				new OptionModel(Option.X, "Yihong"),
-				new OptionModel(Option.Two, "Stella")
+				new OptionModel(Option.One, "Tomatoes"),
+				new OptionModel(Option.X, "Avocados"),
+				new OptionModel(Option.Two, "Onions")
 			},
 			Option.X,
 			"/images/quiz7.jpg"
 		),
 		new QuestionAnswerModel(
 			8,
-			"What is your ice scream's name?",
+            "Who invented the telephone?",
 			new OptionModel[]
 			{
-				new OptionModel(Option.One, "Kevin"),
-				new OptionModel(Option.X, "Yihong"),
-				new OptionModel(Option.Two, "Stella")
+				new OptionModel(Option.One, "Thomas Edison"),
+				new OptionModel(Option.X, "Isaac Newton"),
+				new OptionModel(Option.Two, "Alexander Graham Bell")
 			},
 			Option.Two,
 			"/images/quiz8.jpg"
