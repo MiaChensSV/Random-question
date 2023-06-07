@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Question } from '../../models/question';
 import axios from 'axios'
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-question-card',
@@ -29,7 +30,7 @@ export class QuestionCardComponent {
         answer: this.questionList[this.questionIndex].options[this.optionIndex].optionText
       };
       console.log(answerObj);
-      axios.post('http://localhost:3001/api/QuestionAnswer/checkAnswer', answerObj).then(res => {
+      axios.post(`${environment.backendBaseUrl}/api/QuestionAnswer/checkAnswer`, answerObj).then(res => {
         console.log(res.data)  
         // TODO: score calculate according to answer result
         if(res.data.isAnwserCorrect){
@@ -64,7 +65,7 @@ export class QuestionCardComponent {
     this.scoreEvent.emit(-1);
   }
   getQuestions(){
-    axios.get('http://localhost:3001/api/QuestionAnswer/getRandomQuestions/3').then(res => {
+    axios.get(`${environment.backendBaseUrl}/api/QuestionAnswer/getRandomQuestions/3`).then(res => {
       this.questionList = res.data;
     });
   }
