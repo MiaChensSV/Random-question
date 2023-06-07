@@ -4,7 +4,8 @@ namespace DHA_Code_Test_Backend;
 
 public static class DummyDB
 {
-	private static readonly List<QuestionAnswerModel> _questionAnswerlist = new List<QuestionAnswerModel>{
+	private static readonly List<QuestionAnswerModel> _questionAnswerlist = new()
+	{
 		new QuestionAnswerModel(
 			1,
             "What is the capital of France?",
@@ -130,8 +131,8 @@ public static class DummyDB
 	}
 	private static List<int> GenerateNonRepeatRandom(int numOfRand, int sampleSize)
 	{
-		Random rand = new Random();
-		List<int> retVal = new List<int>();
+		Random rand = new();
+		List<int> retVal = new();
 		while(retVal.Count < numOfRand)
 		{
 			int newRandInt = rand.Next(0, sampleSize);
