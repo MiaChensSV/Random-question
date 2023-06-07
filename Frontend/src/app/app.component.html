@@ -1,12 +1,12 @@
 <router-outlet> 
   <div class="container">
-    <div class="question-card">
+    <div>
     <app-question-card 
       (scoreEvent)="receiveScore($event)"
     />
-  </div>
-  <div class="socre-card">
-    <app-score-card [scoreResult]="score" />
-  </div>
+    </div>
+    <div>
+      <app-score-card [scoreResult]="score" />
+    </div>
 </div>
 </router-outlet>
