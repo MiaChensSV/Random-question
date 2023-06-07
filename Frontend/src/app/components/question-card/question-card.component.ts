@@ -22,7 +22,6 @@ export class QuestionCardComponent {
     this.optionIndex = event.target.checked ? index: undefined;
   }
   submitAnswer(){
-    console.log('Q Card: ', this.questionIndex);
     if (this.optionIndex==undefined || this.optionIndex==null){
       return;
     }
@@ -31,9 +30,7 @@ export class QuestionCardComponent {
         questionAnswerId: this.questionList[this.questionIndex].questionAnswerId,
         answer: this.questionList[this.questionIndex].options[this.optionIndex].optionText
       };
-      console.log(answerObj);
       axios.post(`${environment.backendBaseUrl}/api/QuestionAnswer/checkAnswer`, answerObj).then(res => {
-        console.log(res.data)  
         // TODO: score calculate according to answer result
         if(res.data.isAnwserCorrect){
           this.score++;
@@ -45,7 +42,6 @@ export class QuestionCardComponent {
         if(this.questionIndex == this.questionList.length){
           this.scoreEvent.emit(this.score);
           this.score = 0;
-          console.log(this.score);
         }
       });
     }
