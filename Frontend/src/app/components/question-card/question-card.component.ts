@@ -15,6 +15,7 @@ export class QuestionCardComponent {
   optionIndex: any;
   score:number=0;
   startButtonText: string = 'Start';
+  baseUrl:string=environment.backendBaseUrl;
 
   changeSelection(event:any,index:number){
     this.optionIndex = event.target.checked ? index: undefined;
