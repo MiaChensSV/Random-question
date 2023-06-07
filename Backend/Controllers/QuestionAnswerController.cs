@@ -12,7 +12,7 @@ namespace DHA_Code_Test_Backend.Controllers
 		{
 			try
 			{
-				return DummyDB.getRandomQuestions(numOfQuestions);
+				return DummyDB.GetRandomQuestions(numOfQuestions);
 			} catch(ArgumentOutOfRangeException exc) 
 			{
 				return StatusCode(422, ErrorHandler.GenerateLoggedErrorJson(exc));
@@ -29,7 +29,7 @@ namespace DHA_Code_Test_Backend.Controllers
 				if (questionAnswerId <= 0) {
 					return StatusCode(422, "Question Answer Id out of range.");
 				}
-				AnswerModel retVal = DummyDB.getCorrectAnswerById(questionAnswerId);
+				AnswerModel retVal = DummyDB.GetCorrectAnswerById(questionAnswerId);
 				return retVal;
 			} catch (QuestionAnswerNotFoundException exc)
 			{
@@ -49,7 +49,7 @@ namespace DHA_Code_Test_Backend.Controllers
 			{
 				if (answer == null || answer.QuestionAnswerId < 0)
 					throw new ArgumentException("Unprocessable answer object");
-				AnswerModel correctAnswer = DummyDB.getCorrectAnswerById(answer.QuestionAnswerId);
+				AnswerModel correctAnswer = DummyDB.GetCorrectAnswerById(answer.QuestionAnswerId);
 				if (correctAnswer.Answer == answer.Answer)
 					return new ResultModel(answer.QuestionAnswerId, true);
 				else

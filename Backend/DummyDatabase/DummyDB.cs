@@ -4,7 +4,7 @@ namespace DHA_Code_Test_Backend;
 
 public static class DummyDB
 {
-	private static List<QuestionAnswerModel> questionAnswerlist = new List<QuestionAnswerModel>{
+	private static readonly List<QuestionAnswerModel> _questionAnswerlist = new List<QuestionAnswerModel>{
 		new QuestionAnswerModel(
 			1,
             "What is the capital of France?",
@@ -102,21 +102,21 @@ public static class DummyDB
 			"/images/quiz8.jpg"
 		)
 	};
-	public static QuestionModel[] getRandomQuestions(int numOfRand) 
+	public static QuestionModel[] GetRandomQuestions(int numOfRand) 
 	{
-		if (numOfRand > questionAnswerlist.Count || numOfRand < 0)
+		if (numOfRand > _questionAnswerlist.Count || numOfRand < 0)
 			throw new ArgumentOutOfRangeException("Number of random can not be greater than the number of questions.");
 		QuestionModel[] retVal = new QuestionModel[numOfRand];
-		List<int> randIndexes = GenerateNonRepeatRandom(numOfRand, questionAnswerlist.Count());
+		List<int> randIndexes = GenerateNonRepeatRandom(numOfRand, _questionAnswerlist.Count);
 		for (int i = 0; i < numOfRand; i++)
 		{
-			retVal[i] = questionAnswerlist[randIndexes[i]].ToQuestionModel();
+			retVal[i] = _questionAnswerlist[randIndexes[i]].ToQuestionModel();
 		}
 		return retVal;
 	}
-	public static AnswerModel getCorrectAnswerById(int questionAnswerId)
+	public static AnswerModel GetCorrectAnswerById(int questionAnswerId)
 	{
-		List<QuestionAnswerModel> result = questionAnswerlist
+		List<QuestionAnswerModel> result = _questionAnswerlist
 			.FindAll(item => item.QuestionAnswerId == questionAnswerId)
 			.ToList();
 		if (result.Count == 0)

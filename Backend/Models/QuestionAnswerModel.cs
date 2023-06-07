@@ -1,5 +1,4 @@
 ﻿namespace DHA_Code_Test_Backend.Models;
-
 public class QuestionAnswerModel
 {
 	public int QuestionAnswerId { get; set; }
@@ -25,7 +24,6 @@ public class QuestionAnswerModel
 	{
 		return new QuestionModel(this.QuestionAnswerId, this.QuestionText, this.Options,this.ImageUrl);
 	}
-
 	public AnswerModel GetCorrectAnswerModel()
 	{
 		string correctAnswerText = this.Options.FirstOrDefault(option => option.OptionValue == this.CorrectAnswer)!.OptionText;

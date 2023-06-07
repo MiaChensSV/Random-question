@@ -1,5 +1,4 @@
 ﻿namespace DHA_Code_Test_Backend.Models;
-
 public enum Option: int { One = 0, X = 1, Two = 2 }	
 public class OptionModel
 {
