@@ -11,7 +11,6 @@ export class ScoreCardComponent implements OnInit {
   @Input() scoreResult:number=-1;
 
   ngOnInit() {
-    console.log(environment);
   }
   
 }
