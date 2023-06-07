@@ -1,4 +1,8 @@
-<div *ngIf="questionList.length > 0">
+<div>
+  <button (click)="retry()">{{startButtonText}}</button>
+  <button (click)="stop()">Stop</button>
+</div>
+<div *ngIf="questionList.length > 0 && questionIndex < questionList.length">
   <p>question-card works!</p>
   <h1>
     {{ questionList[questionIndex].questionText }}
@@ -14,8 +18,9 @@
       />
       {{ option.optionText }}
     </label>
-    <div>
+    <div >
       <button (click)="submitAnswer()">Submit</button>
     </div>
+   
   </div>
 </div>

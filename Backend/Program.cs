@@ -35,13 +35,10 @@ namespace DHA_Code_Test_Backend
 			}
 
 			app.UseCors();
-
+			app.UseStaticFiles();
 			app.UseHttpsRedirection();
-
 			app.UseAuthorization();
-
 			app.MapControllers();
-
 			app.Run();
 		}
 	}
