@@ -16,6 +16,7 @@ export class QuestionCardComponent {
   score:number=0;
   startButtonText: string = 'Start';
   baseUrl:string=environment.backendBaseUrl;
+  title:string="Let's do a test";
 
   changeSelection(event:any,index:number){
     this.optionIndex = event.target.checked ? index: undefined;
@@ -51,11 +52,13 @@ export class QuestionCardComponent {
   }
   retry(){
     this.startButtonText = 'Retry';
+    this.title="Want to try again?"
     this.getQuestions();
     this.reset();
   }
   stop(){
     this.startButtonText = 'Start';
+    this.title="Let's do a test"
     this.questionList = [];
     this.reset()
   }

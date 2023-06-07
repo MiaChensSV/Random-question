@@ -1,0 +1,39 @@
+.title{
+    text-align: center;
+    padding: 0 20 0 20;
+}
+.button-section{
+    padding:50px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+img{
+    max-width: 400px;
+    height: auto;
+    
+}
+.questions{
+    padding:20px 0px 20px 20px;
+    background-color: rgb(240, 240, 240);
+    .title{
+        text-align: center;
+        font-size: larger;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        padding:20px;
+    }
+    .image{
+        text-align: center;
+    }
+    .answer{
+        padding:20px;
+        display:flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    .submit{
+        text-align: center;
+
+    }
+}
+
