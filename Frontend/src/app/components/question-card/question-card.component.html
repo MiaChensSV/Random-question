@@ -1,27 +1,27 @@
-<div>
-  <button (click)="retry()">{{startButtonText}}</button>
-  <button (click)="stop()">Stop</button>
-</div>
-<div *ngIf="questionList.length > 0 && questionIndex < questionList.length">
-  <p>question-card works!</p>
-  <img [src]="baseUrl+questionList[questionIndex].imageUrl" alt='{{questionList[questionIndex].questionText}}'/>
-  <h1>
-    {{ questionList[questionIndex].questionText }}
-  </h1>
-  <div>
-    <label 
-      *ngFor="let option of questionList[questionIndex].options let index = index"
-    >
-      <input
-        type="checkbox"
-        [ngModel]="optionIndex == index"
-        (change)="changeSelection($event, index)"
-      />
-      {{ option.optionText }}
-    </label>
-    <div >
-      <button (click)="submitAnswer()">Submit</button>
+<div class="container">
+  <div class="button-section">
+    <button type="button" class="btn btn-success start " (click)="retry()">{{startButtonText}}</button>
+    <h1>{{title}}</h1>
+    <button type="button" class="btn btn-danger stop"(click)="stop()">Stop</button>
+  </div>
+  <div class="questions" *ngIf="questionList.length > 0 && questionIndex < questionList.length">    
+    <h1 class="title" >
+     {{questionIndex+1}}. {{ questionList[questionIndex].questionText }}
+    </h1>
+    <div class="image"><img [src]="baseUrl+questionList[questionIndex].imageUrl" alt='{{questionList[questionIndex].questionText}}'/></div> 
+    <div class="answer" >
+      <label *ngFor="let option of questionList[questionIndex].options let index = index"
+      >
+        <input
+          type="checkbox"
+          [ngModel]="optionIndex == index"
+          (change)="changeSelection($event, index)"
+        />
+        {{ option.optionText }}
+      </label>     
     </div>
-   
+    <div class="submit">
+      <button type="button" class="btn btn-secondary" (click)="submitAnswer()">Submit</button>
+    </div>
   </div>
 </div>
