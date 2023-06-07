@@ -14,7 +14,8 @@ public static class DummyDB
 				new OptionModel(Option.X, "Yihong"),
 				new OptionModel(Option.Two, "Stella")
 			},
-			Option.X
+			Option.X,
+			"/images/quiz1.jpg"
 		),
 		new QuestionAnswerModel(
 			2,
@@ -25,7 +26,8 @@ public static class DummyDB
 				new OptionModel(Option.X, "Yihong"),
 				new OptionModel(Option.Two, "Stella")
 			},
-			Option.One
+			Option.One,
+			"/images/quiz2.jpg"
 		),
 		new QuestionAnswerModel(
 			3,
@@ -36,7 +38,8 @@ public static class DummyDB
 				new OptionModel(Option.X, "Yihong"),
 				new OptionModel(Option.Two, "Stella")
 			},
-			Option.Two
+			Option.Two,
+			"/images/quiz3.jpg"
 		),
 		new QuestionAnswerModel(
 			4,
@@ -47,7 +50,8 @@ public static class DummyDB
 				new OptionModel(Option.X, "Yihong"),
 				new OptionModel(Option.Two, "Stella")
 			},
-			Option.One
+			Option.One,
+			"/images/quiz4.jpg"
 		),
 		new QuestionAnswerModel(
 			5,
@@ -58,7 +62,8 @@ public static class DummyDB
 				new OptionModel(Option.X, "Yihong"),
 				new OptionModel(Option.Two, "Stella")
 			},
-			Option.X
+			Option.X,
+			"/images/quiz5.jpg"
 		),
 		new QuestionAnswerModel(
 			6,
@@ -69,7 +74,8 @@ public static class DummyDB
 				new OptionModel(Option.X, "Yihong"),
 				new OptionModel(Option.Two, "Stella")
 			},
-			Option.Two
+			Option.Two,
+			"/images/quiz6.jpg"
 		),
 		new QuestionAnswerModel(
 			7,
@@ -80,7 +86,8 @@ public static class DummyDB
 				new OptionModel(Option.X, "Yihong"),
 				new OptionModel(Option.Two, "Stella")
 			},
-			Option.X
+			Option.X,
+			"/images/quiz7.jpg"
 		),
 		new QuestionAnswerModel(
 			8,
@@ -91,7 +98,8 @@ public static class DummyDB
 				new OptionModel(Option.X, "Yihong"),
 				new OptionModel(Option.Two, "Stella")
 			},
-			Option.Two
+			Option.Two,
+			"/images/quiz8.jpg"
 		)
 	};
 	public static QuestionModel[] getRandomQuestions(int numOfRand) 

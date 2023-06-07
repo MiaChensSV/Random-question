@@ -4,6 +4,7 @@
 </div>
 <div *ngIf="questionList.length > 0 && questionIndex < questionList.length">
   <p>question-card works!</p>
+  <img [src]="baseUrl+questionList[questionIndex].imageUrl" alt='{{questionList[questionIndex].questionText}}'/>
   <h1>
     {{ questionList[questionIndex].questionText }}
   </h1>
