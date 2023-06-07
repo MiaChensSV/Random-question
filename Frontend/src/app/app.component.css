@@ -1,4 +1,10 @@
 .container{
-    margin: 50px ;
+    margin: 20px;
     background-color: rgb(171, 169, 169);
+position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 25px;
+
 }
