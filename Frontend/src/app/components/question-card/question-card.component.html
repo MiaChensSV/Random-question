@@ -12,7 +12,6 @@
     <div class="answer" >
       <label *ngFor="let option of questionList[questionIndex].options let index = index"
       > 
-        <span>{{optionSymbols[option.optionValue]}}. </span>
         <input
           type="checkbox"
           [ngModel]="optionIndex == index"
