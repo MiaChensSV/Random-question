@@ -17,7 +17,6 @@ export class QuestionCardComponent {
   startButtonText: string = 'Start';
   baseUrl:string=environment.backendBaseUrl;
   title:string="Welcome To The Quiz";
-  optionSymbols:string[]=["1", "X", "2"];
 
   changeSelection(event:any,index:number){
     this.optionIndex = event.target.checked ? index: undefined;
@@ -49,7 +48,7 @@ export class QuestionCardComponent {
   }
   retry(){
     this.startButtonText = 'Retry';
-    this.title="Want to try again?"
+    this.title=""
     this.getQuestions();
     this.reset();
   }
