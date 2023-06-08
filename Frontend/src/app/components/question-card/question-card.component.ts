@@ -16,7 +16,7 @@ export class QuestionCardComponent {
   score:number=0;
   startButtonText: string = 'Start';
   baseUrl:string=environment.backendBaseUrl;
-  title:string="Let's do a test";
+  title:string="Welcome To The Quiz";
   optionSymbols:string[]=["1", "X", "2"];
 
   changeSelection(event:any,index:number){
@@ -55,7 +55,7 @@ export class QuestionCardComponent {
   }
   stop(){
     this.startButtonText = 'Start';
-    this.title="Let's do a test"
+    this.title="Welcome To The Quiz"
     this.questionList = [];
     this.reset()
   }
