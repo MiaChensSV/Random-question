@@ -1,4 +1,4 @@
-# DHA-Code-Test
+# Random - Question
 This is a small Quiz Game. Backend is using Asp.Net Core Web API. Fronend is using Angular.
 
 ## About this app
