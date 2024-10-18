@@ -18,7 +18,7 @@ This is a small Quiz Game. Backend is using Asp.Net Core Web API. Fronend is usi
 `$ dotnet run DHA-Code-Test-Backend.sln`
 
 ### Run frontend.
-`$ npm start`
+`$ ng serve`
 
 ### Start Page
 ![start-question-screenshot](Screenshots/start-question.png) 
